@@ -48,13 +48,20 @@ function generatePassword(){
   if (characterRules.every(isFalsy)) {
     alert("Error: password must contain at least one character type.")
     var truthy = prompt("Choose one: lowercase [0], uppercase [1], numbers [2], special characters [3]")
+    if (truthy === " "){
+      truthy = -1
+    }
 
-    // This while loop makes sure the user only chooses one of the options listed.
-    while(0 > truthy || truthy > 3 || truthy.length > 1 || isNaN(truthy) || truthy === " " ){
-      var truthy = prompt(" Choose one: lowercase [0], uppercase [1], numbers [2], special characters [3]")
+    // This while loop makes sure the user only chooses one of the options listed. JS recognizes empty spaces as 0, so I had to check if an empty space was entered and update it to a value outside of the loop critia to make sure the entry is not accepted.
+    while(0 > truthy || truthy > 3 || truthy.length > 1 || isNaN(truthy)){
+      truthy = prompt(" Choose one: lowercase [0], uppercase [1], numbers [2], special characters [3]")
+      if (truthy === " "){
+        truthy = -1
+      }
+      }
+
     }
     characterRules[truthy] = true
-  }
 
   // I made a function outside of this one that takes in a boolen array of a users desired characters, and outputs an array of only those desired characters.
   charactersAllowed = characters(characterRules)
