@@ -21,7 +21,7 @@ function generatePassword(){
   
   // lets the user exit the function if they decide to not make a password at the beginning.
   if (numLength === null) {
-    return;
+    return("");
   } 
 
   // a while loop keeps the user inputing a password length until they input one that matches the criteria for password length.
@@ -50,7 +50,7 @@ function generatePassword(){
     var truthy = prompt("Choose one: lowercase [0], uppercase [1], numbers [2], special characters [3]")
 
     // This while loop makes sure the user only chooses one of the options listed.
-    while(0 > truthy || truthy > 3 || truthy.length > 1 || isNaN(truthy)){
+    while(0 > truthy || truthy > 3 || truthy.length > 1 || isNaN(truthy) || truthy === " " ){
       var truthy = prompt(" Choose one: lowercase [0], uppercase [1], numbers [2], special characters [3]")
     }
     characterRules[truthy] = true
@@ -62,7 +62,7 @@ function generatePassword(){
   // This creates my password. The loop takes in numLength to set the number of iterations based on the users desired password length. Then, each loop iteration a variable called x is defined as some random number within the length of the character array unique to the user. x is then used to index through the character array and pull the unique character at the random position. This character is then appended to a string called password. The loop continues and the password is returned upon loop termination.
   while (satisfied === false){
     for (let i = 0; i < numLength; i++){
-      let x = getRndInteger(0, charactersAllowed.length);
+      let x = getRandomNum(0, charactersAllowed.length);
       password += charactersAllowed[x];
     }
     if(!window.confirm("Password: " + password + "\nWould you like a new password?")){
@@ -92,7 +92,7 @@ function characters(rules){
   return charactersAllowed
 }
 
-// got this resource from mdn
-function getRndInteger(min, max) {
+// This function lets me get a random number within a provided min and max value
+function getRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
