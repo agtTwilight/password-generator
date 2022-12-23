@@ -27,6 +27,9 @@ function generatePassword(){
   // a while loop keeps the user inputing a password length until they input one that matches the criteria for password length.
   while(numLength < 8 || numLength > 128 || isNaN(numLength)) {
     numLength = prompt("Sorry, password length must be between 8 and 128 characters.")
+    if (numLength === null) {
+      return("");
+    } 
   }
   
   //converts number length to a number. not necessary since js string numbers will still work similarly in our case, but I think it's good practice to keep unit types as you intend to use them.
