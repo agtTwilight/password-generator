@@ -13,4 +13,4 @@ Note: the alert prompts that populate your page will sometimes have two options:
 <img src="./assests/start.png" alt="arrow pointing to a generate password button" title="Optional title">
 <img src="./assests/exampleclick.png" alt="arrow poiting to ok in the password length alert" title="Optional title">
 <img src="./assests/examplefinish.png" alt="arrow pointing to cancel to show that you are satisfied with your password. The password is also boxed." title="Optional title">
-<img src="./assests/passwordcomplete" alt="the final password is in the center of the page, with a box around it." title="Optional title">
+<img src="./assests/passwordcomplete.png" alt="the final password is in the center of the page, with a box around it." title="Optional title">
